@@ -14,6 +14,15 @@ server.on('request', (req, res) => {
             id: 1,
             name: 'Doom Guy'
         }));
+    } else if(req.url === '/messages') {
+        res.write('<html>');  
+        res.write('<body>');
+        res.write('<ul>');
+        res.write('<li>Hi Doom Guy!</hi>');
+        res.write('<li>How are things in Phobos?</hi>');
+        res.write('</ul>');
+        res.write('</html>');  
+        res.write('</body>');
     } else {
         res.statusCode = 404;
         res.end();
