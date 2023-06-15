@@ -22,6 +22,9 @@ const friends = [
 
 server.on('request', (req, res) => {
     const items = req.url.split('/');
+    if (req.method == 'POST' && items[1] === 'friends') {
+
+    }
     if (req.method == 'GET' && items[1] === 'friends') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
