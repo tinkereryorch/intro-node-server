@@ -22,7 +22,7 @@ const friends = [
 
 server.on('request', (req, res) => {
     const items = req.url.split('/');
-    if (items[1] === 'friends') {
+    if (req.method == 'GET' && items[1] === 'friends') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
         if (items.length === 3) {
@@ -31,7 +31,7 @@ server.on('request', (req, res) => {
         } else {
             res.end(JSON.stringify(friends));
         }
-    } else if (req.url === '/messages') {
+    } else if (req.method == 'GET' && req.url === '/messages') {
         res.write('<html>');
         res.write('<body>');
         res.write('<ul>');
